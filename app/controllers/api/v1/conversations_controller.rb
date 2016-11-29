@@ -6,6 +6,10 @@ module Api
 		    render json: Conversation.all
 		  end
 
+			def show
+        render json: Conversation.find(params[:id])
+      end
+
     end
   end
 end
