@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 20161129064700) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.text     "comment"
-    t.integer  "comment_id"
+    t.text     "comment_text"
+    t.integer  "parent_comment_id"
     t.integer  "post_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["comment_id"], name: "index_comments_on_comment_id", using: :btree
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["parent_comment_id"], name: "index_comments_on_parent_comment_id", using: :btree
     t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
