@@ -3,13 +3,15 @@ module Api
 		class PostsController < ApplicationController
 
       def index
-		    render json: Post.all
+		    render json: Post.all, include: '**'
 		  end
 
       def show
-        render json: Post.find(params[:id])
+				post = Post.find(params[:id])
+				comments = post.where(post.parent_comment_id = nil)
+        render json: post, include: :comments
       end
-			# 
+			#
       # def create
       #   post = Post.new(post_params)
       #   if post.save
