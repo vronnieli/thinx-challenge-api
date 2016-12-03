@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   namespace :api do
   	namespace :v1 do
   		#post '/login', to: "sessions#create"
-      resources :posts
-      resources :conversations
-      resources :messages
-      resources :comments
+      resources :posts, only: [:index]
+      resources :conversations, only: [:index, :create]
+      resources :messages, only: [:create]
+      resources :comments, only: [:create]
+      resources :users, only: [:index]
   	end
   end
 

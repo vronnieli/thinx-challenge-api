@@ -6,11 +6,12 @@ module Api
 		    render json: Post.all, include: '**'
 		  end
 
-      def show
-				post = Post.find(params[:id])
-				comments = post.where(post.parent_comment_id = nil)
-        render json: post, include: :comments
-      end
+      # def show
+			# 	post = Post.find(params[:id])
+			# 	comments = post.where(post.parent_comment_id = nil)
+			# 	binding.pry
+      #   render json: post, include: :comments
+      # end
 			#
       # def create
       #   post = Post.new(post_params)
