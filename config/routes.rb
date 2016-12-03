@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :posts
       resources :conversations
       resources :messages
+      resources :comments
   	end
   end
 
