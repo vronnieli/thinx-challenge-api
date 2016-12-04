@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:create]
       resources :comments, only: [:create]
       resources :users, only: [:index]
+      post '/login', to: "sessions#create"  
   	end
   end
 

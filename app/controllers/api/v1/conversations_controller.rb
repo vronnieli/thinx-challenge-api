@@ -3,13 +3,14 @@ module Api
 		class ConversationsController < ApplicationController
 
       def index
-		    render json: Conversation.all
+				conversations = Conversation.joins(:users).where("users.id": current_user.id)
+		    render json: conversations
 		  end
 
 			def create
 				conversation = Conversation.new
+				conversation.users << current_user
 				conversation.users << User.find(params[:conversation][:user_id])
-				# also add current_user
 				if conversation.save
 					render json: conversation
 				else

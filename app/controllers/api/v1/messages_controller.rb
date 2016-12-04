@@ -4,6 +4,7 @@ module Api
 
       def create
         message = Message.new(message_params)
+        message.user_id = current_user.id
         if message.save
           render json: message
         else
@@ -14,7 +15,7 @@ module Api
       private
 
       def message_params
-        params.require(:message).permit(:content, :user_id, :conversation_id)
+        params.require(:message).permit(:content, :conversation_id)
       end
 
     end

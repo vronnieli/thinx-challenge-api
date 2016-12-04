@@ -2,17 +2,12 @@ module Api
 	module V1
 		class PostsController < ApplicationController
 
+			skip_before_action :authenticate
+
       def index
 		    render json: Post.all, include: '**'
 		  end
 
-      # def show
-			# 	post = Post.find(params[:id])
-			# 	comments = post.where(post.parent_comment_id = nil)
-			# 	binding.pry
-      #   render json: post, include: :comments
-      # end
-			#
       # def create
       #   post = Post.new(post_params)
       #   if post.save
