@@ -9,4 +9,8 @@ class Comment < ApplicationRecord
     self.user.username
   end
 
+  def created_at_datetime
+    self.created_at.asctime
+  end
+
 end

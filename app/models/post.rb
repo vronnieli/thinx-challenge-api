@@ -6,15 +6,19 @@ class Post < ApplicationRecord
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   def image_url_thumb
-    image.url(:thumb)
+    image.url(:thumb)[19..-1]
   end
 
   def image_url_medium
-    image.url(:medium)
+    image.url(:medium)[19..-1]
   end
 
   def username
     self.user.username
+  end
+
+  def created_at_datetime
+    self.created_at.asctime
   end
 
 end
