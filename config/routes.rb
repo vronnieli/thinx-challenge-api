@@ -7,8 +7,9 @@ Rails.application.routes.draw do
       resources :conversations, only: [:index, :create]
       resources :messages, only: [:create]
       resources :comments, only: [:create]
-      resources :users, only: [:index]
-      post '/login', to: "sessions#create"  
+      resources :users, only: [:index, :create]
+      post '/login', to: "sessions#create"
+      delete '/logout', to: 'sessions#destroy'
   	end
   end
 
