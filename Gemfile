@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.10.2'
 gem 'jwt'
 gem 'paperclip'
 gem 'aws-sdk'
